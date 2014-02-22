@@ -33,6 +33,7 @@
 #include "User.h"
 #include "Channel.h"
 #include "Overlay.h"
+#include "OverlayConfig.h"
 #include "MainWindow.h"
 #include "Global.h"
 
