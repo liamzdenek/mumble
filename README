@@ -1,3 +1,46 @@
+mumble-silent-recording
+=======================
+
+This is a fork of Mumble, a popular voice chat program. The parent fork
+of this software announces to users when a person is recording. This
+repository disables that functionality. The changes are isolated on the
+client, which means that a user with this fork can silently record
+on any mumble server.
+
+The purpose of this fork is to illustrate why the recording notification
+functionality is not useful and may, in fact, be harmful.
+
+These modifications aside, it is possible to record a VoIP conversation
+such as one through mumble (or any audio-based chat program). A user that
+wished to record without detection could record the output from pulseaudio
+directly[1]. Alternatively, the line out could be spliced in hardware, one
+end going to a recording device, and the other to the user's output device.
+
+Due to the fact this "Username has started recording" notification exists,
+naive users may believe that they cannot be recorded without such a
+notification occuring[2]. This is potentially made even more dangerous by
+the fact that the notification logic was incredibly easy to subvert[3]. 
+
+I expect this change to be unpopular[4], but the underlying question here:
+Is a recording notification useful if users believe that they cannot be
+recorded without receiving a notifaction? This change nothing new; it is
+just another, easier method to record without notification.
+
+[1] http://askubuntu.com/questions/60837/record-a-programs-output-with-pulseaudio
+    - note, this is meant as a proof of concept and is probably not viable in
+      its current state
+[2] I have no rigorous study backing this. Of the ~dozen people I've asked, two
+    of them did not believe it was possible to record a conversation in mumble
+    without their knowledge. This is obviously an insufficient sample set, but
+    it is not unreasonable to assume that more people believe similarly.
+[3] https://github.com/liamzdenek/mumble-silent-recording/commit/2130aa9e500cd861542f763bc3837a5da97db7f8
+    tl;dr: one well-placed "return;"
+[4] http://sourceforge.net/p/mumble/feature-requests/1109/
+    based on the thumbs up/down ratio of this ticket.
+
+End of readme changes
+=====================
+
          M U M B L E
 
  A voicechat utility for gamers
